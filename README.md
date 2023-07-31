@@ -43,7 +43,7 @@ Logs in the local Docker client to one or more Amazon ECR Private registries or 
 ```yaml
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: semdatex/actions-amazon-ecr-login@v1
 
       - name: Build, tag, and push docker image to Amazon ECR
         env:
@@ -59,7 +59,7 @@ Logs in the local Docker client to one or more Amazon ECR Private registries or 
 ```yaml
       - name: Login to Amazon ECR Public
         id: login-ecr-public
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: semdatex/actions-amazon-ecr-login@v1
         with:
           registry-type: public
 
@@ -78,7 +78,7 @@ Logs in the local Docker client to one or more Amazon ECR Private registries or 
 ```yaml
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: semdatex/actions-amazon-ecr-login@v1
 
       - name: Package and push helm chart to Amazon ECR
         env:
@@ -93,7 +93,7 @@ Logs in the local Docker client to one or more Amazon ECR Private registries or 
 ```yaml
       - name: Login to Amazon ECR Public
         id: login-ecr-public
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: semdatex/actions-amazon-ecr-login@v1
         with:
           registry-type: public
 
@@ -120,7 +120,7 @@ Logs in the local Docker client to one or more Amazon ECR Private registries or 
 
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: semdatex/actions-amazon-ecr-login@v1
         with:
           registries: "123456789012,998877665544"
 ```
@@ -147,7 +147,7 @@ jobs:
           mask-aws-account-id: 'false'
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: semdatex/actions-amazon-ecr-login@v1
     outputs:
       registry: ${{ steps.login-ecr.outputs.registry }}
       docker_username: ${{ steps.login-ecr.outputs.docker_username_123456789012_dkr_ecr_us_east_1_amazonaws_com }} # More information on these outputs can be found below in the 'Docker Credentials' section
@@ -187,7 +187,7 @@ This action relies on the [default behavior of the AWS SDK for Javascript](https
 
       - name: Login to Amazon ECR Private
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: semdatex/actions-amazon-ecr-login@v1
 ```
 
 We recommend following [Amazon IAM best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) when using AWS services in GitHub Actions workflows, including:
@@ -222,7 +222,7 @@ Additionally, this action will always consider an already configured proxy in th
 
 Proxy configured via action input:
 ```yaml
-uses: aws-actions/amazon-ecr-login@v1.6.0
+uses: semdatex/actions-amazon-ecr-login@v1.6.0
 with:
   http-proxy: "http://companydomain.com:3128"
 ````
